@@ -1,4 +1,4 @@
-# 🍕 Tifosi - Base de données MySQL
+# Tifosi - Base de données MySQL
 
 Base de données pour le restaurant de Street-Food italien **Tifosi**.
 
