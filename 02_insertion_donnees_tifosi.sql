@@ -1,6 +1,5 @@
 -- ==========================================================================
 -- BASE DE DONNEES TIFOSI - Insertion des donnees de test
--- Source : fichiers CSV fournis (marque, boisson, ingredient, focaccia)
 -- ==========================================================================
 
 USE tifosi;

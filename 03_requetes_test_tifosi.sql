@@ -1,6 +1,5 @@
 -- ==========================================================================
 -- BASE DE DONNEES TIFOSI - Requetes de verification
--- 10 requetes pour valider le bon fonctionnement de la base
 -- ==========================================================================
 
 USE tifosi;
