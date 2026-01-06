@@ -97,7 +97,7 @@ CREATE TABLE client (
     CONSTRAINT pk_client PRIMARY KEY (id_client),
     CONSTRAINT uk_client_email UNIQUE (email),
     CONSTRAINT chk_client_email CHECK (email LIKE '%@%.%'),
-    CONSTRAINT chk_client_code_postal CHECK (code_postal BETWEEN 01000 AND 99999)
+    CONSTRAINT chk_client_code_postal CHECK (code_postal BETWEEN 1000 AND 99999)
 ) ENGINE=InnoDB;
 
 -- ------------------------------------------------------------
