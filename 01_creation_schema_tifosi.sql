@@ -60,11 +60,11 @@ CREATE TABLE client (
     id_client       INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nom             VARCHAR(50) NOT NULL,
     email           VARCHAR(150) NOT NULL,
-    code_postal     INT UNSIGNED NOT NULL,
+    code_postal     CHAR(5) NOT NULL,
     CONSTRAINT pk_client PRIMARY KEY (id_client),
     CONSTRAINT uk_client_email UNIQUE (email),
     CONSTRAINT chk_client_email CHECK (email LIKE '%@%.%'),
-    CONSTRAINT chk_client_code_postal CHECK (code_postal BETWEEN 1000 AND 99999)
+    CONSTRAINT chk_client_code_postal CHECK (code_postal REGEXP '^[0-9]{5}$')
 ) ENGINE=InnoDB;
 
 -- Table des menus (formules focaccia + boisson)
