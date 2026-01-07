@@ -37,7 +37,7 @@ CREATE TABLE marque (
 -- Table des boissons (liee a marque)
 CREATE TABLE boisson (
     id_boisson  INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    nom         VARCHAR(60) NOT NULL,
+    nom         VARCHAR(50) NOT NULL,
     id_marque   INT UNSIGNED NOT NULL,
     CONSTRAINT pk_boisson PRIMARY KEY (id_boisson),
     CONSTRAINT uk_boisson_nom UNIQUE (nom),
@@ -48,7 +48,7 @@ CREATE TABLE boisson (
 -- Table des focaccias avec leur prix
 CREATE TABLE focaccia (
     id_focaccia INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    nom         VARCHAR(60) NOT NULL,
+    nom         VARCHAR(50) NOT NULL,
     prix        DECIMAL(5,2) NOT NULL,
     CONSTRAINT pk_focaccia PRIMARY KEY (id_focaccia),
     CONSTRAINT uk_focaccia_nom UNIQUE (nom),
@@ -70,7 +70,7 @@ CREATE TABLE client (
 -- Table des menus (formules focaccia + boisson)
 CREATE TABLE menu (
     id_menu INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    nom     VARCHAR(60) NOT NULL,
+    nom     VARCHAR(50) NOT NULL,
     prix    DECIMAL(5,2) NOT NULL,
     CONSTRAINT pk_menu PRIMARY KEY (id_menu),
     CONSTRAINT uk_menu_nom UNIQUE (nom),
@@ -116,11 +116,11 @@ CREATE TABLE contient (
         REFERENCES boisson(id_boisson) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
--- Historique des achats clients (client <-> menu avec date)
+-- Historique des achats clients (client <-> menu avec horodatage)
 CREATE TABLE achete (
     id_client   INT UNSIGNED NOT NULL,
     id_menu     INT UNSIGNED NOT NULL,
-    date_achat  DATE NOT NULL,
+    date_achat  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT pk_achete PRIMARY KEY (id_client, id_menu, date_achat),
     CONSTRAINT fk_achete_client FOREIGN KEY (id_client) 
         REFERENCES client(id_client) ON DELETE CASCADE ON UPDATE CASCADE,
